@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-
-
 vector<int> rotateArray(vector<int>arr, int k) {
     vector<int>ans;
     for(int i=k;i<arr.size();i++){

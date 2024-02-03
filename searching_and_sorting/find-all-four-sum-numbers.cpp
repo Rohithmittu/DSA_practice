@@ -49,6 +49,7 @@ vector<vector<int> > fourSum(vector<int> &arr, int s) {
         // return v1;
         
         if (a.size() < 4) return {};
+        
         vector<vector<int>> ans;
         sort(a.begin(), a.end());
         for (int i = 0; i < a.size() - 3; ++i) {
@@ -84,6 +85,9 @@ vector<vector<int> > fourSum(vector<int> &arr, int s) {
             }
         }
         return ans;
+
+
+        // tc = O(n^3)  sc = o(n^2)
     
         
     }

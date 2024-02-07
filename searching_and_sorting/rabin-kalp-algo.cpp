@@ -55,7 +55,7 @@ void search(char pat[], char txt[], int q)
         if (i < N - M) {
             t = (d * (t - txt[i] * h) + txt[i + M]) % q;
  
-            // We might get negative value of t, converting
+            // We might get negative value of t converting
             // it to positive
             if (t < 0)
                 t = (t + q);

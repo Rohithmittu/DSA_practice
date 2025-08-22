@@ -56,10 +56,6 @@
     Where N and M are the number of rows and columns of the 2D array, respectively.
 */
 
-#include <vector>
-
-int dx[] = {0, 1, 1, 1, 0, -1, -1, -1};
-int dy[] = {-1, -1, 0, 1, 1, 1, 0, -1};
 
 /*
     dx[] and dy[] are the arrays that define each of the eight directions.
@@ -75,9 +71,14 @@ int dy[] = {-1, -1, 0, 1, 1, 1, 0, -1};
 
 */
 
-vector<vector<bool>> vis;
 
-void getTotalIslandsHelper(int** mat, int n, int m, int x, int y)
+#include <bits/stdc++.h> 
+
+int dx[] = {0, 1, 1, 1, 0, -1, -1, -1};
+int dy[] = {-1, -1, 0, 1, 1, 1, 0, -1};
+
+
+void getTotalIslandsHelper(vector<vector<int>>&mat, int n, int m, int x, int y,vector<vector<bool>> &vis)
 {
     // Check if this cell is valid.
     if(!(x >= 0 && x < n && y >= 0 && y < m && mat[x][y] == 1 && !vis[x][y]))
@@ -92,24 +93,25 @@ void getTotalIslandsHelper(int** mat, int n, int m, int x, int y)
         int nextX = x + dx[i];
         int nextY = y + dy[i];
 
-        getTotalIslandsHelper(mat, n, m, nextX, nextY);
+        getTotalIslandsHelper(mat, n, m, nextX, nextY,vis);
     }
 }
 
-int getTotalIslands(int** mat, int n, int m)
+int numberOfIslands(vector<vector<int>>& grid, int n, int m)
 {
-    vis = vector<vector<bool>>(n, vector<bool>(m, false));
+    vector<vector<bool>>vis (n, vector<bool>(m, false));
+
     int islands = 0;
 
     for(int i=0; i<n; i++)
     {
         for(int j=0; j<m; j++)
         {
-            if(mat[i][j] == 1 && !vis[i][j])
+            if(grid[i][j] == 1 && !vis[i][j])
             {
                 // We have found an undiscovered island.
                 islands++;
-                getTotalIslandsHelper(mat, n, m, i, j);
+                getTotalIslandsHelper(grid, n, m, i, j,vis);
             }
         }
     }

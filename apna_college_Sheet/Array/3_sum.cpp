@@ -12,7 +12,6 @@ public:
         //         for(int k = j+1;k<n;k++){
         //             if(nums[i] + nums[j] + nums[k] == 0){
         //                 vector<int> dump = {nums[i],nums[j],nums[k]};
-
         //                 sort(dump.begin(),dump.end());
         //                 if(s.find(dump) == s.end()){
         //                     s.insert(dump);
